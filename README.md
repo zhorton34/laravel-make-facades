@@ -2,7 +2,7 @@
 
 **Installation**
 1. `composer require clean-code-studio/laravel-make-facades:1.0.4`
-2. `php artisan vendor:publish --provider="CleanCodeStudio\MakeFacades\ServiceProvider"
+2. `php artisan vendor:publish --provider="CleanCodeStudio\MakeFacades\ServiceProvider`
 
 **Example**
 1. Execute `php artisan make:facade MyCoolService` Scaffolds
