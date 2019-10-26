@@ -4,8 +4,11 @@
 1. `composer require clean-code-studio/laravel-make-facades`
 
 **Example**
-1. Execute `php artisan make:facade MyCoolService` Scaffolds Two New Classes
-Your Application Service (`App\Facades\MyCoolClass\MyCoolClass.php`)
+1. Execute `php artisan make:facade MyCoolService` Scaffolds
+
+This Command Scaffolds Two New Classes.
+
+A: Your Service Class (`App\Facades\MyCoolClass\MyCoolClass.php`)
 ```
 <?php
 
@@ -18,7 +21,7 @@ class MyCoolService
 }
 ```
 
-2. Your Services Facade (`App\Facades\MyCoolClass\MyCoolClassFacade.php`)
+B. Your Services Facade Class (`App\Facades\MyCoolClass\MyCoolClassFacade.php`)
 ```
 <?php
 
