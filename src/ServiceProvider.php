@@ -27,12 +27,12 @@ class ServiceProvider extends BaseServiceProvider
     {
         // publish config
         $this->publishes([
-            __DIR__.'/../config/make-facades.php' => config_path('make-facades.php')
+            __DIR__.'/config/make-facades.php' => config_path('make-facades.php')
         ], 'config');
 
         // publish auto alias facades service provider
         $this->publishes([
-            __DIR__.'/../providers/AutoAliasFacadesServiceProvider.php' => app_path('providers/AutoAliasFacadesServiceProvider.php')
+            __DIR__.'/providers/AutoAliasFacadesServiceProvider.php' => app_path('providers/AutoAliasFacadesServiceProvider.php')
         ], 'provider');
 
         // Register Aliases
