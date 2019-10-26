@@ -2,7 +2,6 @@
 
 namespace CleanCodeStudio\MakeFacades;
 
-use Commands\FacadeMakeGenerator;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
@@ -16,7 +15,7 @@ class ServiceProvider extends BaseServiceProvider
     public function register()
     {
         // Auto Register AutoAliasFacadesServiceProvider
-        $this->app->register(AutoAliasFacadesServiceProvider::class);        
+        $this->app->register(Providers\AutoAliasFacadesServiceProvider::class);        
     }
 
     /**
@@ -38,7 +37,9 @@ class ServiceProvider extends BaseServiceProvider
 
         // Register Aliases
         if ($this->app->runningInConsole()) {
-            $this->commands([FacadeMakeGenerator::class]);
+            $this->commands([
+                Commands\FacadeMakeGenerator::class
+            ]);
         }
     }
 }
