@@ -1,15 +1,12 @@
 <?php
 
 return [
-	// Directory path save your facades
-	'path' => 'app/facades',
+	// Path where facades and facade service classes are saved
+	'path' => 'app/Facades',
 
 	// Namespace Of Your Facades
-	'root_namespace' => 'App\\Facades',
+	'namespace' => 'App\\Facades',
 
-	// Auto Alias Facades only works if:
-	// ---------------------------------------
-	// 1. You use php artisan publish to add the AliasCreatedFacadesServiceProvider
-	// 2. All Service Classes Related To Generated Facades are registered to AliasCreatedFacadesService Provider's $bindings = [] array 
+	// Automatically Bind Facade Service Classes To Container And Register Facade Aliases
 	'auto_alias_facades' => true,
 ];

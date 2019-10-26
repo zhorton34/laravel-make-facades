@@ -35,12 +35,13 @@ class FacadeMakeGenerator extends GeneratorCommand
      */
     protected function getPath($name)
     {
-        $saveTo = config('make-facades.path');
-        $name = Str::replaceFirst($this->rootNamespace(), '', $name);
-        $path = Str::replaceLast('app', $saveTo, $this->laravel['path']);
-        $path = $path.str_replace('\\', '/', $name).'/'.$this->getNameInput().'.php';
-        
-        return Str::replaceFirst('Facades', 'facades', $path);
+        $dir = $this->getNameInput();
+        $file = $this->getNameInput();
+        $base = Str::replaceFirst('app', '', $this->laravel['path']);
+        $facades_path = config('make-facades.path');
+        $path = "{$base}{$facades_path}/{$dir}/{$file}.php";
+
+        return $path;
     }
 
     /**
@@ -76,6 +77,7 @@ class FacadeMakeGenerator extends GeneratorCommand
         $facadeName = $this->qualifyClass("{$this->getNameInput()}Facade");
 
         $path = $this->getPath($name);
+
         // First we will check to see if the class already exists. If it does, we don't want
         // to create the class and overwrite the user's code. So, we will bail out so the
         // code is untouched. Otherwise, we will continue generating this class' files.
@@ -99,12 +101,29 @@ class FacadeMakeGenerator extends GeneratorCommand
         $facadeClass = $this->replaceNamespace($facadeStub, $facadeName)->replaceClass($facadeStub, $facadeStub);
 
         $this->files->put($path, $serviceClass);
-        $this->info('created service successfully');
+        $this->info('created facade service successfully');
 
         $this->files->put(Str::replaceLast('.php', 'Facade.php', $path), $facadeClass);
         $this->info('created facade successfully');
     }
 
+    /**
+     * Replace the namespace for the given stub.
+     *
+     * @param  string  $stub
+     * @param  string  $name
+     * @return $this
+     */
+    protected function replaceNamespace(&$stub, $name)
+    {
+        $stub = str_replace(
+            ['DummyNamespace', 'DummyRootNamespace', 'NamespacedDummyUserModel', 'App\\Facades'],
+            [$this->getNamespace($name), $this->rootNamespace(), $this->userProviderModel(), config('make-facades.namespace')],
+            $stub
+        );
+
+        return $this;
+    }
 
     /**
      * Build the directory for the class if necessary.
@@ -142,7 +161,7 @@ class FacadeMakeGenerator extends GeneratorCommand
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace . '\Facades';
+        return config('make-facades.namespace');
     }
 
     /**

@@ -2,7 +2,6 @@
 
 namespace CleanCodeStudio\MakeFacades;
 
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
@@ -14,8 +13,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        // Auto Register AutoAliasFacadesServiceProvider
-        $this->app->register(Providers\AutoAliasFacadesServiceProvider::class);        
+        // register   
     }
 
     /**
@@ -32,7 +30,7 @@ class ServiceProvider extends BaseServiceProvider
 
         // publish auto alias facades service provider
         $this->publishes([
-            __DIR__.'/providers/AutoAliasFacadesServiceProvider.php' => app_path('providers/AutoAliasFacadesServiceProvider.php')
+            __DIR__.'/providers/AliasFacadesServiceProvider.php' => app_path('providers/AliasFacadesServiceProvider.php')
         ], 'provider');
 
         // Register Aliases
