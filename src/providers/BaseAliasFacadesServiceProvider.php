@@ -9,6 +9,11 @@ use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 class BaseAliasFacadesServiceProvider extends BaseServiceProvider
 {
     /**
+     * Auto populate bindings with facade service classes
+     */
+    public $bindings = [];
+    
+    /**
      * Register services.
      *
      * @return void
