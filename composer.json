@@ -4,6 +4,11 @@
     "license": "MIT",
     "version": "1.0.0",
     "keywords": ["facade", "laravel facade generator", "laravel commands", "artisan", "php artisan make facade generator", "artisan package", "laravel package", "php artisan", "php artisan make", "laravel facades", "laravel generators", "php", "facades", "laravel facade", "laravel facades"],
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
     "authors": [
         {
             "name": "Zak",
@@ -15,7 +20,7 @@
     },
   "autoload": {
     "psr-4": {
-      "CleanCodeStudio\\MakeFacades\\": "src"
+      "CleanCodeStudio\\MakeFacades\\": "src/"
     }
   },
   "extra": {
