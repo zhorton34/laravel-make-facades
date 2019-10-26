@@ -8,7 +8,7 @@
 
 This Command Scaffolds Two New Classes.
 
-A: Your Service Class (`App\Facades\MyCoolClass\MyCoolClass.php`)
+A: Your Service Class (`App\Facades\MyCoolService\MyCoolService.php`)
 ```
 <?php
 
@@ -21,7 +21,7 @@ class MyCoolService
 }
 ```
 
-B. Your Services Facade Class (`App\Facades\MyCoolClass\MyCoolClassFacade.php`)
+B. Your Services Facade Class (`App\Facades\MyCoolService\MyCoolServiceFacade.php`)
 ```
 <?php
 
@@ -57,8 +57,8 @@ return [
 
 	// Auto Alias Facades
 	// Only works if 
-	// 1. You use php artisan publish to add the AliasCreatedFacadesServiceProvider
-	// 2. All Service Classes Related To Generated Facades are registered to AliasCreatedFacadesService Provider's $bindings = [] array 
+	// 1. You use php artisan publish to add the AutoAliasFacadesServiceProvider
+	// 2. All Service Classes Related To Generated Facades are registered to AutoAliasFacadesService Provider's $bindings = [] array 
 	'auto_alias_facades' => true,
 ];
 ```

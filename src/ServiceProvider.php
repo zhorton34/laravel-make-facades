@@ -4,9 +4,9 @@ namespace CleanCodeStudio\MakeFacades;
 
 use Commands\FacadeMakeGenerator;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
-class MakeFacadesServiceProvider extends ServiceProvider
+class ServiceProvider extends BaseServiceProvider
 {
     /**
      * Register services.

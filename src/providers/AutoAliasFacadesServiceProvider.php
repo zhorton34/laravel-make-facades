@@ -3,10 +3,10 @@
 namespace CleanCodeStudio\MakeFacades;
 
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 // Provider Automatically Registered To Application When CleanCodeStudio\MakeFacadeServiceProvider.php Is Registered
-class AutoAliasFacadesServiceProvider extends ServiceProvider
+class AutoAliasFacadesServiceProvider extends BaseServiceProvider
 {
     // Helpful Docs: See Simple Bindings Section
     // https://laravel.com/docs/6.x/providers
