@@ -1,6 +1,6 @@
 <?php
 
-namespace CleanCodeStudio\MakeFacades;
+namespace CleanCodeStudio\MakeFacades\Providers;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
