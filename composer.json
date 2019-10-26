@@ -1,0 +1,28 @@
+{
+    "name": "clean-code-studio/laravel-make-facades",
+    "description": "Laravel Artisan Command To Generate Facades (php artisan make:facade FacadeService)",
+    "license": "MIT",
+    "keywords": ["laravel facade generator", "laravel commands", "artisan", "make:facade", "artisan package", "laravel package", "php artisan", "php artisan make", "laravel facades", "laravel generators", "php"],
+    "authors": [
+        {
+            "name": "Zak",
+            "email": "zhorton999@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+      "php": "^7.1.3"
+    },
+  "autoload": {
+    "psr-4": {
+      "CleanCodeStudio\\MakeFacades\\": "src"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "CleanCodeStudio\\MakeFacades\\ServiceProvider"
+      ]
+    }
+  }
+}

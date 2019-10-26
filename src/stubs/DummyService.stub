@@ -1,0 +1,9 @@
+<?php
+
+namespace App\Facades\DummyService;
+
+
+class DummyService
+{
+    // create DummyService class
+}
