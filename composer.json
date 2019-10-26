@@ -25,7 +25,8 @@
   "extra": {
     "laravel": {
       "providers": [
-        "CleanCodeStudio\\MakeFacades\\ServiceProvider"
+        "CleanCodeStudio\\MakeFacades\\ServiceProvider",
+        "CleanCodeStudio\\MakeFacades\\Providers\\BaseAliasFacadesServiceProvider"
       ]
     }
   }

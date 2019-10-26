@@ -5,5 +5,8 @@ namespace App\Facades\DummyService;
 
 class DummyService
 {
-    // create DummyService class
+    public function exampleDummyServiceMethod()
+    {
+    	return 'DummyService Service Registered for DummyServiceFacade';
+    }
 }
