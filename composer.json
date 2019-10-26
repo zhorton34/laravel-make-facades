@@ -10,7 +10,6 @@
             "email": "zhorton999@gmail.com"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
       "php": "^7.1.3"
     },
