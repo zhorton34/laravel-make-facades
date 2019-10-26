@@ -1,15 +1,36 @@
 #### php artisan make:facade {ServiceClassName}
 
-**Installation**
-1. `composer require clean-code-studio/laravel-make-facades:1.0.5`
-2. `php artisan vendor:publish --provider="CleanCodeStudio\MakeFacades\ServiceProvider`
+**Step 1. Installation**
+ - `composer require clean-code-studio/laravel-make-facades:1.0.6`
 
-**Example**
-1. Execute `php artisan make:facade MyCoolService` Scaffolds
+**Step 2. Publish Config**
+ - `php artisan vendor:publish CleanCodeStudio\MakeFacades\ServiceProvider --tag="config"`
 
-This Command Scaffolds Two New Classes.
+**Step 3. Define Config Settings (config/make-facades.php published in step 2)**
+ - Open make-facades.php which was published to your app/config directory in step 2
+ - Define Your settings when you run the php artisan make:facade {ServiceClassName} Command
 
-A: Your Service Class (`App\Facades\MyCoolService\MyCoolService.php`)
+```
+// config/make-facade.php example
+
+return [
+	// Directory path save your facades
+	'path' => 'app/facades',
+
+	// Namespace Of Your Facades
+	'namespace' => 'App\\Facades',
+
+	// This will find all of the aliases and services defined in your path settings and
+	// 1. Bind the service classes for each facade to the service container automatically
+	// 2. Register aliases for each facade base on the Class Name the Facade Reference to the service container  
+        //    automatically
+	'auto_alias_facades' => true,
+];
+```
+
+**Step 4. Run php artisan make:facade MyCoolService to quickly scaffold out application services!**
+
+  - Your Service Class Scaffold (`App\Facades\MyCoolService\MyCoolService.php`)
 ```
 <?php
 
@@ -22,7 +43,7 @@ class MyCoolService
 }
 ```
 
-B. Your Services Facade Class (`App\Facades\MyCoolService\MyCoolServiceFacade.php`)
+  - Your Services Facade Class Scaffold (`App\Facades\MyCoolService\MyCoolServiceFacade.php`)
 ```
 <?php
 
@@ -41,88 +62,18 @@ class MyCoolServiceFacade extends Facade
 ```
 
 
-**Extra Configuration**
-1. Execute `php artisan publish` 
-2. Choose To Publish `CleanCodeStudio\MakeFacades config`
-3. This will publish a `config/make-facades.php` configuration file
+**In Closing**
+A. Remember You Can Auto Bind The Services and Auto Aliases Your Service Facades Simply By Setting
+   `auto_alias_facades` to TRUE within you `config/make-facades.php` file! Simple, quick, and easy.
 
-```
-// config/make-facade.php example
+B. If you do change your namespace or file path in your config, 
+   Facades and Facade Services within the old namespace and old file path
+   WILL NOT AUTOMATICALLY REGISTER TO THE CONTAINER.
 
-return [
-	// Directory path save your facades
-	'path' => 'app/facades',
-
-	// Namespace Of Your Facades
-	'root_namespace' => 'App\\Facades',
-
-	// Auto Alias Facades
-	// Only works if 
-	// 1. You use php artisan publish to add the AutoAliasFacadesServiceProvider
-	// 2. All Service Classes Related To Generated Facades are registered to AutoAliasFacadesService Provider's $bindings = [] array 
-	'auto_alias_facades' => true,
-];
-```
-
-**Auto Alias Generated Facades**
-1. Execute `php artisan publish`
-2. Choose To Publish `CleanCodeStudio\MakeFacades provider`
-3. This will publish a `AutoAliasFacadesServiceProvider.php` to your `app/providers` directory
-4. Bind Your `MyCoolService` Class To The Service Container 
-   using the `protected $bindings` Array within `AutoAliasFacadesServiceProvider.php`
-_Note (You have to use the public $bindings array for this to work properly)_
-
-**Example Of Auto Aliasing Generated Facade Services**
-```
-<?php
-
-namespace CleanCodeStudio\MakeFacades\Providers;
-
-use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
-
-// Provider Automatically Registered To Application When CleanCodeStudio\MakeFacadeServiceProvider.php Is Registered
-class AutoAliasFacadesServiceProvider extends ServiceProvider
-{
-    // Bind your facade SERVICE class, NOT the service facade class ~ this will automatically 
-    // create an alias to your Services facade
-    public $bindings = [
-        'MyCoolService' => App\Facades\MyCoolService\MyCoolService::class, 
-    ];
-
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        // Only Bind Facade Services Via The $bindings property to automatically add aliases!!!
-
-        // Auto register facades for auto generated facade services registered in bindings. 
-        $this->registerFacadeAliases();
-    }
-
-    /**
-     * Register Facade Aliases
-     */
-    protected function registerFacadeAliases()
-    {
-        collect($this->bindings)
-            ->filter(function ($service) {
-                return class_exists("{$service}Facade");
-            })
-            ->each(function ($service, $alias) {
-                AliasLoader::getInstance()->alias($alias, "{$service}Facade");
-            });
-    }
-
-    public function boot()
-    {
-        // boot
-    }
-
-}
-```
+C. If you do not want to auto register or automatically add the aliases for your generated facades, simply set
+   `auto_alias_facades` to false within your `config/make-facades.php` file
 
 
+Thanks for your support!
+
+_Clean Code Studio ~ Zak Horton ~ Simplify!_
