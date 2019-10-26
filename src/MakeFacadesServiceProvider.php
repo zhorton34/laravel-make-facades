@@ -6,7 +6,7 @@ use Commands\FacadeMakeGenerator;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
-class ServiceProvider extends ServiceProvider
+class MakeFacadesServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
