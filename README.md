@@ -1,7 +1,7 @@
 #### Aritsan Command To Make a Service and related ServiceFacade
 
 **Installation**
-1. `composer require clean-code-studio/laravel-facade-generator`
+1. `composer require clean-code-studio/laravel-make-facades`
 
 **Example**
 1. Execute `php artisan make:facade MyCoolClass`
