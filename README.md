@@ -4,7 +4,8 @@
  - `composer require clean-code-studio/laravel-make-facades:1.0.6`
 
 **Step 2. Publish Config**
- - `php artisan vendor:publish CleanCodeStudio\MakeFacades\ServiceProvider --tag="config"`
+ - `php artisan vendor:publish` 
+ - Select CleanCodeStudio\MakeFacades\ServiceProvider
 
 **Step 3. Define Config Settings (config/make-facades.php published in step 2)**
  - Open make-facades.php which was published to your app/config directory in step 2
