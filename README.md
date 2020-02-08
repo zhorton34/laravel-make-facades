@@ -1,7 +1,7 @@
 #### php artisan make:facade {ServiceClassName}
 
 **Step 1. Installation**
- - `composer require clean-code-studio/laravel-make-facades:1.0.6`
+ - `composer require clean-code-studio/laravel-make-facades`
 
 **Step 2. Publish Config**
  - `php artisan vendor:publish` 
