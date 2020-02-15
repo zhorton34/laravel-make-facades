@@ -1,5 +1,8 @@
 #### php artisan make:facade {ServiceClassName}
 
+Youtube Tutorial Of Laravel Facades And Then Implementing Facades using this package: 
+https://www.youtube.com/watch?v=Go0JBT98uOw
+
 **Step 1. Installation**
  - `composer require clean-code-studio/laravel-make-facades`
 
