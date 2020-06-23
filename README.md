@@ -4,7 +4,7 @@ Youtube Tutorial Of Laravel Facades And Then Implementing Facades using this pac
 https://www.youtube.com/watch?v=Go0JBT98uOw
 
 **Step 1. Installation**
- - `composer require clean-code-studio/laravel-make-facades`
+ - `composer require clean-code-studio/laravel-make-facades --dev`
 
 **Step 2. Publish Config**
  - `php artisan vendor:publish` 
