@@ -24,6 +24,9 @@ return [
 	// Namespace Of Your Facades
 	'namespace' => 'App\\Facades',
 
+  // Providers path (@see https://github.com/zhorton34/laravel-make-facades/issues/4)
+  'providers_path' => 'app/Providers',
+  
 	// This will find all of the aliases and services defined in your path settings and
 	// 1. Bind the service classes for each facade to the service container automatically
 	// 2. Register aliases for each facade base on the Class Name the Facade Reference to the service container  

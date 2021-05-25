@@ -13,7 +13,8 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        // register   
+        // register config for use within service provider boot method
+        $this->mergeConfigFrom(__DIR__.'/config/make-facades.php', 'make-facades');
     }
 
     /**
@@ -23,14 +24,15 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function boot()
     {
-        // publish config
+        // publish config for end user customization 
         $this->publishes([
             __DIR__.'/config/make-facades.php' => config_path('make-facades.php')
         ], 'config');
 
         // publish auto alias facades service provider
+
         $this->publishes([
-            __DIR__.'/providers/AliasFacadesServiceProvider.php' => app_path('Providers/AliasFacadesServiceProvider.php')
+            __DIR__.'/providers/AliasFacadesServiceProvider.php' => app_path(config('make-facades.providers_path').'/AliasFacadesServiceProvider.php')
         ], 'provider');
 
         // Register Aliases
