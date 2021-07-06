@@ -1,5 +1,6 @@
 {
     "name": "clean-code-studio/laravel-make-facades",
+    "homepage": "https://cleancode.studio/topics/packages/laravel-make-facades",
     "description": "Laravel Artisan Command To Generate Facades (php artisan make generator now execpts facade Facadename)",
     "license": "MIT",
     "keywords": ["facade", "laravel facade generator", "laravel commands", "artisan", "php artisan make facade generator", "artisan package", "laravel package", "php artisan", "php artisan make", "laravel facades", "laravel generators", "php", "facades", "laravel facade", "laravel facades"],
@@ -11,7 +12,9 @@
     "authors": [
         {
             "name": "Zak",
-            "email": "zhorton999@gmail.com"
+            "role": "Developer",
+            "email": "zhorton999@gmail.com",
+            "homepage": "https://cleancode.studio"
         }
     ],
     "require": {
